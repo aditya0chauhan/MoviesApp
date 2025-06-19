@@ -163,10 +163,10 @@ li img {
     align-items: center;
     padding: 10px 0;
 } 
-.button {
-    width: 230px;
+.add {
+    width: 150px;
     position: fixed;
-   top: 12%;
+    margin-top: 10%;
     margin-right: 4%;
     right: 2%;
     display: flex;
@@ -176,14 +176,14 @@ li img {
 
 .note {
     display: block;
-    width: 350px;
+    width: 250px;
     border-radius: 8px;
     flex-direction: column;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:501px) {
    header {
     background-color: #333;
     min-width: 100%;
@@ -219,6 +219,7 @@ li img {
     padding: 10px 0;
 } 
 .add {
+    margin-top: 14%;
     position: fixed;
     margin-right:1%;
     display: flex;
@@ -285,6 +286,64 @@ li img {
     transition: transform 0.2s ease-in-out;
 }}
 @media screen and (max-width:375px) {
+
+   header {
+    background-color: #333;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+header ul {
+    width: 40%;
+    display: flex;
+}
+
+header span {
+    margin-left: 2%;
+    font-size: 18px;
+}
+
+ul li {
+    list-style: none;
+}
+
+li img {
+    width: 70%;
+}
+
+#container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+} 
+
+.add {
+    position: fixed;
+    margin-top: 19%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note {
+    display: block;
+    width: 200px;
+    flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+}
+@media screen and (max-width:425px) {
 
    header {
     background-color: #333;
