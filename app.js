@@ -1,79 +1,89 @@
-// selectors
-let userInput = document.querySelector("input");
-let searchBtn = document.querySelector("#search");
-let infoBox = document.querySelector(".container .info-box");
-let theme = document.querySelector("#theme");
-const main = document.querySelector("main");
-console.log(main)
+//selectors
+const container = document.querySelector('#container');
+const add = document.querySelector('.add');
+const body = document.querySelector("body");
+const h1 = document.querySelector("h1");
+const footer = document.querySelector("footer")
 
-// get data 
-let getData = () => {
-    let username = userInput.value.trim();
+const createNote = (content = "") => {
+    const note = document.createElement('div');
+    note.classList.add('note');
+    note.innerHTML = `
+        <div class="tool">
+            <div class="heade">
+                <img class="save" src="save.png" alt="">
+                <img class="delete" src="delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            </div>
+            <textarea>${content}</textarea>
+        </div>`;
 
-    if (username === "") {
-        infoBox.innerHTML = "<p>Please enter a username</p>";
-        return;
-    }
+    const deleteButton = note.querySelector('.delete');  
+    const saveButton = note.querySelector('.save');     
+    const textarea = note.querySelector('textarea');
 
-    infoBox.innerHTML = 
-    `<div class="loader">
-    <span class="loader-text">loading</span>
-      <span class="load"></span>
-  </div>
-`
+    // Delete note 
 
-    const url = `https://api.github.com/users/${username}`;
+    deleteButton.addEventListener("click", () => {
+        note.remove();
+        updateLocalStorage();
+    });
 
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-            if (data && !data.message) {
-                infoBox.innerHTML = `
-                <div class="userDetails">
-                <div class="userimage">
-                <img src="${data.avatar_url}" width="150" />
-                </div>
-                <div class="more">
-                 <h3>Name - ${data.name || "No name available"}</h3>
-                        <p><strong>Username:</strong> ${data.login}</p>
-                        <p><strong>Public Repos:</strong> ${data.public_repos}</p>
-                        <p><strong>Followers:</strong> ${data.followers}</p>
-                        <a href="${data.html_url}" target="_blank">Visit Profile</a>
-                </div>
-                    </div>`;
-            } else {
-                infoBox.innerHTML = "<p>User not found</p>";
-            }
-        })
-        .catch((err) => {
-            infoBox.innerHTML = "<p>Error fetching data</p>";
-            console.error(err);
-        });
+    // Save note
+
+    saveButton.addEventListener("click", () => {
+        if(textarea.value.trim() !== "") {
+            updateLocalStorage();
+            alert("Your Note is Saved");
+        } else {
+            alert("Cannot save empty note!");
+        }
+    });
+
+    
+    textarea.addEventListener('input', () => {
+        if(textarea.value.trim() !== "") {
+            updateLocalStorage();
+        }
+    });
+
+    container.appendChild(note);
 };
 
-// search button event
-searchBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-       getData();
-       infoBox.style.opacity = "10"
-});
+// Save notes to localStorage
 
-// theme button event 
-
-main.style.backgroundImage = " linear-gradient(60deg, #29323c 0%, #485563 100%)";
-
-infoBox.style.backgroundImage = "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)"
-
-let isDarkMode = true;
-
-theme.addEventListener("click", () => {
-    if (isDarkMode) {
-        main.style.backgroundImage = "linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)";
-        infoBox.style.backgroundImage = "linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)";
-        
-    } else {
-        main.style.backgroundImage = "linear-gradient(60deg, #29323c 0%, #485563 100%)";
-        infoBox.style.backgroundImage = "linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)"
+const updateLocalStorage = () => {
+    const notes = document.querySelectorAll('textarea');
+    const data = [];
+    notes.forEach(note => {
+        if(note.value.trim() !== "") {
+            data.push(note.value);
+        }
+    });
+    if(data.length > 0) {  
+        localStorage.setItem('notes', JSON.stringify(data));
     }
-    isDarkMode = !isDarkMode;
-});
+};
+
+// Load saved notes
+
+const loadNotes = () => {
+    const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    if(savedNotes.length === 0) {  
+        createNote();
+    } else {
+        savedNotes.forEach(noteContent => {
+            if(noteContent.trim() !== "") {
+                createNote(noteContent);
+            }
+        });
+    }
+};
+
+// Add new note when clicking add button
+
+add.addEventListener('click', () => 
+    createNote());
+
+// Load saved notes when page loads
+
+loadNotes();

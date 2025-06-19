@@ -1,6 +1,18 @@
-# Github Profile Search Project
-- Github api data fetch 
-- Search profile 
-- Visit Profile (On Github)
-- Change Theme Button (Light and Dark)
-- Add Download Link ( Github App on playStore )
+# Build a Notes App - 
+
+# Header
+
+- Project Name
+- Social Links
+
+# Buttons
+
+- Add button
+- Delete Button
+- Save Button  
+
+# Features - 
+
+- Add Notes
+- Remove Notes 
+- Saved Notes
