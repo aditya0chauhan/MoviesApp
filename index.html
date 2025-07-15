@@ -1,32 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-512/free-apple-ibooks-icon-download-in-svg-png-gif-file-formats--logo-books-ebook-apps-pack-user-interface-icons-493146.png?f=webp&w=256" type="image/x-icon">
+    <link 
+    rel="shortcut icon" 
+    href="https://ghawthorne66.github.io/movie-search-app/assets/images/Movie-Logo.png"
+    type="image/x-icon">
+
     <link rel="stylesheet" href="/index.css">
-    <script src="/app.js" defer></script>
-    <title>Notes App by Aditya</title>
+    <title>Movies Search App by Aditya</title>
 </head>
 
 <body>
     <header>
-        <span><b>Notes App Project</b></span>
-        <ul>
-    <li> <a href="https://www.instagram.com/adiityachauha.n/"> <img src="instagram.png"</a></li>
-    <li><a href="https://www.facebook.com/profile.php?id=100050719992622"><img src="facebook.png" alt=""> </a></li>
-    <li><a href="http://t.me/Adityarajpoot485"><img src="telegram.png" alt=""></a></li>
-    <li><a href="https://www.snapchat.com/add/adityarajput-01?share_id=TUX97WATVI8&locale=en-IN"><img src="social.png" ></a></li>
-        </ul>
-    </header>
-    <div class="button">
-        <button class="add">
-            <img src="add.png" alt="">
-            Add Note</button>
-    </div>
-    <div id="container">
-    </div>
-</body>
 
+        <div class="logo">
+            <a href="#home"><img src="movies-film-logo-design-template-9573e30edab8e4e449be5b19668a7400_screen.jpg" alt=""></a>
+        </div>
+
+        <form>
+            <input id="input" type="text" placeholder="">
+
+            <div class="check">
+                <p>✖</p>
+            </div>
+
+            <button class="search">
+                        <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        height="24px" 
+                        viewBox="0 -960 960 960" 
+                        width="24px"
+                       fill="#0000F5">
+                    <path
+                        d="M782.87-98.52 526.91-354.48q-29.43 21.74-68.15 34.61Q420.04-307 375.48-307q-114.09 0-193.55-79.46-79.45-79.45-79.45-193.54 0-114.09 79.45-193.54Q261.39-853 375.48-853q114.09 0 193.54 79.46 79.46 79.45 79.46 193.54 0 45.13-12.87 83.28T601-429.7l256.52 257.09-74.65 74.09ZM375.48-413q69.91 0 118.45-48.54 48.55-48.55 48.55-118.46t-48.55-118.46Q445.39-747 375.48-747t-118.46 48.54Q208.48-649.91 208.48-580t48.54 118.46Q305.57-413 375.48-413Z" />
+                </svg>
+            </button>
+        </form>
+
+        <div id="navMenu">
+        <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        height="30px" 
+        viewBox="0 -960 960 960" 
+        width="30px" 
+        fill="#0000F5">
+        <path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+        </div>
+        
+    </header>
+    <nav>
+        <ul>
+
+            <li id="nowPlaying">
+                <img src="now playing.png"/>Now Playing
+            </li>
+
+            <li id="popular">
+                <img src="movie.png"/>Popular
+            </li>
+
+            <li id="topRated">
+                <img src="top rated.png"/> Top Rated
+            </li>
+
+            <li id="upcoming">
+                <img src="upcoming.png"/>upcoming ★
+                </li>
+
+            <li id="trending">
+                <img src="trending.png"/> Trending
+            </li>
+
+            <li id="webSeries">
+                <img src="web series.png
+                "/> WebSeries
+            </li>
+
+        </ul>
+    </nav>
+
+    <main>
+        <div id="home"></div>
+        <div class="load">
+            <div class="frame">
+                <div class="center">
+                    <div class="dot-1"></div>
+                    <div class="dot-2"></div>
+                    <div class="dot-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="cards">
+            </div>
+        </div>
+
+    </main>
+    <script src="/app.js" defer></script>
+
+</body>
 </html>
+
+
+
+
+
+

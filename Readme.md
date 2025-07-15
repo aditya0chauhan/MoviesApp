@@ -1,18 +1,27 @@
-# Build a Notes App - 
+# Movies App
 
-# Header
+- header
+    * logo
+    * input ( Fetch Api )
+    * search bar
+    * menu button
 
-- Project Name
-- Social Links
+- Nav bar
+- UL
+    * li Fetch Api
+    * li ( Now Playing )
+    * li ( Popular )
+    * li ( Top Rated )
+    * li ( Upcoming )
+    * li ( Trending )
+    * li ( Web Series )
 
-# Buttons
+- Movies Cards
+   * Fetch Api 
+   * Movie Name
+   * Movie Release Date
+   * Movie Rating
+   * Movie Overview
+   * Movie Poster Image
 
-- Add button
-- Delete Button
-- Save Button  
-
-# Features - 
-
-- Add Notes
-- Remove Notes 
-- Saved Notes
+- Loading bar
